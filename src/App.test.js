@@ -1,5 +1,5 @@
-const { render, screen, fireEvent } = require("@testing-library/react");
 import App, { replaceCamelCaseWithSpaces } from "./App";
+const { render, screen, fireEvent } = require("@testing-library/react");
 
 test("initial conditions", () => {
 	render(<App />);
@@ -35,12 +35,12 @@ test("button has correct initial color", () => {
 
 	const buttonElement = screen.getByRole("button", { name: "Change to blue" });
 
-	expect(buttonElement).toHaveStyle({ backgroundColor: "red" });
+	expect(buttonElement).toHaveStyle({ backgroundColor: "MediumVioletRed" });
 
 	fireEvent.click(buttonElement);
 
-	expect(buttonElement).toHaveStyle({ backgroundColor: "blue" });
-	expect(buttonElement.textContent).toBe("Change to red");
+	expect(buttonElement).toHaveStyle({ backgroundColor: "MidnightBlue" });
+	expect(buttonElement).toHaveTextContent("Change to red");
 });
 
 test("if button is graying out when disabled", () => {
@@ -58,7 +58,7 @@ test("if button is graying out when disabled", () => {
 
 	fireEvent.click(checkboxElement);
 
-	expect(buttonElement).toHaveStyle({ backgroundColor: "red" });
+	expect(buttonElement).toHaveStyle({ backgroundColor: "MediumVioletRed" });
 });
 
 test("if button is being disabled after one click", () => {
@@ -68,7 +68,7 @@ test("if button is being disabled after one click", () => {
 
 	fireEvent.click(buttonElement);
 
-	expect(buttonElement).toHaveStyle({ backgroundColor: "blue" });
+	expect(buttonElement).toHaveStyle({ backgroundColor: "MidnightBlue" });
 
 	const checkboxElement = screen.getByRole("checkbox", {
 		name: "Disable button",
@@ -89,8 +89,6 @@ describe("spaces before camel-case capital letters", () => {
 	});
 
 	test("if works for multiple inner capital letters", () => {
-		expect(replaceCamelCaseWithSpaces("MediumVioletRed")).toBe(
-			"Medium Violet Red"
-		);
+		expect(replaceCamelCaseWithSpaces("MediumVioletRed")).toBe("Medium Violet Red");
 	});
 });

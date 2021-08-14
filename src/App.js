@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import "./App.css";
 
@@ -8,17 +8,17 @@ export const replaceCamelCaseWithSpaces = (colorName) => {
 
 function App() {
 	const [buttonText, setButtonText] = useState("Change to blue");
-	const [buttonBackgroundColor, setButtonBackgroundColor] = useState("red");
+	const [buttonBackgroundColor, setButtonBackgroundColor] = useState("MediumVioletRed");
 	const [buttonIsDisabled, setButtonIsDisabled] = useState(false);
 
 	const handleButtonClick = () => {
-		if (buttonBackgroundColor === "red") {
+		if (buttonBackgroundColor === "MediumVioletRed") {
 			setButtonText("Change to red");
-			return setButtonBackgroundColor("blue");
+			return setButtonBackgroundColor("MidnightBlue");
 		}
 
 		setButtonText("Change to blue");
-		return setButtonBackgroundColor("red");
+		return setButtonBackgroundColor("MediumVioletRed");
 	};
 
 	const handleCheckboxClick = () => {
